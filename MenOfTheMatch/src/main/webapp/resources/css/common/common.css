@@ -1,0 +1,96 @@
+/* 공통 css */
+.ma{
+	margin: auto 0;	
+}
+
+.mt200{
+	margin-top: 200px;
+}
+
+.mt500{
+	margin-top: 500px;
+}
+
+.mr30{
+	margin-right: 30px;
+}
+
+.pt300{
+	padding-top: 300px;
+}
+
+/* display */
+.df{
+	  display: flex;
+}
+
+.jc-c{
+	justify-content: center;
+}
+
+/* 텍스트 정렬 */
+
+.tac{
+	text-align: center;
+}
+
+/* 너비 설정 */
+
+.w100p{
+	width: 100%;
+}
+
+.w95p{
+	width: 95%;
+}
+
+.w90p{
+	width: 90%;
+}
+
+.w85p{
+	width: 85%;
+}
+
+.w80p{
+	width: 80%;
+}
+
+.w75p{
+	width: 75%;
+}
+
+.w70P{
+	width: 70%;
+}
+
+.w50px{
+	width: 50px;
+}
+
+.w100{
+	width: 100px;
+}
+
+.h100p{
+	height: 100%;
+}
+
+.basicButton{
+	width: 150px;
+	height: 30px;
+	border-radius: 8px;
+	font-weight: bold;
+	color: white;
+}
+
+
+.success{
+	background-color: #0898ff;
+	border: #fffbf4 solid 1px;
+}
+
+.success:hover{
+	border: #0898ff solid 1px;
+	background-color: #66ffff;
+}

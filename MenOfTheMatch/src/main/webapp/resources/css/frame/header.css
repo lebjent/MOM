@@ -1,0 +1,51 @@
+	 	@import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+		header {
+			background-color: #333;
+			color: #fff;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px;
+		}
+		
+		.logo{
+			cursor: pointer;
+		}
+		
+		.logo img {
+			height: 50px;
+			vertical-align: middle;
+		}
+		
+		nav ul {
+			display: flex;
+			list-style: none;
+		}
+		
+		nav li {
+			margin-left: 20px;
+		}
+		
+		nav a {
+			color: #fff;
+			font-family: 'Jua', sans-serif;
+			text-decoration: none;
+			font-size: 14pt;
+		}
+		
+		nav a:hover{
+			color: #1EAAAA;
+		}
+		
+		.active{
+			color: #1EAAAA;
+		}
+		
+		
+		.title{
+			font-family: 'Sigmar', cursive;
+			font-size: 20pt;
+			vertical-align: middle;
+		}

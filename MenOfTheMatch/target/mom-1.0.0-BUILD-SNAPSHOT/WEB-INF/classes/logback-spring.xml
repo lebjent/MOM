@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <!--  Appenders -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d %5p [%c] %m%n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="console-infolog" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d %5p %m%n</Pattern>
+        </encoder>
+    </appender>
+	
+    <!-- RollingFileAppender -->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 로그 파일 경로 및 이름 설정 -->
+        <file>/path/to/logs/mylog.log</file>
+        
+        <!-- 로그 파일명 패턴 설정 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/path/to/logs/mylog.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+        </rollingPolicy>
+        
+        <!-- 로그 파일 형식 설정 -->
+        <encoder>
+            <Pattern>%d %5p [%c] %m%n</Pattern>
+        </encoder>
+    </appender>
+	
+    <!-- 로거 -->
+    <logger name="com.football.mom" level="DEBUG" appender-ref="console"/>
+    <!-- JDBC logger 추가 -->
+    <logger name="jdbc.sqlonly" level="INFO" appender-ref="console-infolog"/>
+    <logger name="jdbc.resultsettable" level="INFO" appender-ref="console-infolog"/>
+    
+    <!-- 루트 로거 -->
+    <root level="off">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>

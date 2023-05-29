@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- DB관련 설정  -->
+	<!--commons-dpcp 커넥션풀 사용해서 등록-->
+
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
+		    <property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/mom?useUnicode=true&amp;characterEncoding=utf-8;&amp;serverTimezone=Asia/Seoul&amp;"/>
+		<property name="username" value="mom"/>
+		<property name="password" value="1234"/>
+	</bean>
+	
+	<!--Sql-SessionFactory 생성 연동 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- Mybatis Config파일 경로-->
+		<property name="configLocation" value="classpath:config/mybatis-config.xml" />
+		<!-- Mybatis Mapper 경로 -->
+		<property name="mapperLocations" value="classpath*:mappers/**/*-Mapper.xml"/>
+	</bean>
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+		
+</beans>

@@ -1,0 +1,39 @@
+/* 공통 css */
+.ma{
+	margin: auto 0;	
+}
+
+.mt200{
+	margin-top: 200px;
+}
+
+.mt500{
+	margin-top: 500px;
+}
+
+.pt300{
+	padding-top: 300px;
+}
+
+/* display */
+.df{
+	  display: flex;
+}
+
+.jc-c{
+	justify-content: center;
+}
+
+/* 텍스트 정렬 */
+
+.tac{
+	text-align: center;
+}
+
+.w100p{
+	width: 100%;
+}
+
+.h100p{
+	height: 100%;
+}
