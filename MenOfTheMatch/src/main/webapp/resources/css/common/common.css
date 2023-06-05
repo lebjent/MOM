@@ -64,8 +64,16 @@
 	width: 70%;
 }
 
-.w50px{
+.w30{
+	width: 30px;
+}
+
+.w50{
 	width: 50px;
+}
+
+.w80{
+	width: 80px;
 }
 
 .w100{
@@ -93,4 +101,24 @@
 .success:hover{
 	border: #0898ff solid 1px;
 	background-color: #66ffff;
+}
+
+.danger{
+	background-color: #b90f00;
+	border: #fffbf4 solid 1px;
+}
+
+.danger:hover{
+	border: #b90f00 solid 1px;
+	background-color: #ff7e81;
+}
+
+.primary{
+	background-color: #127f2e;
+	border: #fffbf4 solid 1px;
+}
+
+.primary:hover{
+	border: #127f2e solid 1px;
+	background-color: #7ce895;
 }

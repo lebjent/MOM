@@ -77,6 +77,15 @@
             color: white;
         }
 		
+		.btnDiv{
+			text-align: right;
+			margin: 0 auto;
+			margin-bottom: 50px;
+		}
+		
+		option{
+			background-color: white;
+		}
 </style>
 
 <script type="text/javascript">
@@ -88,6 +97,7 @@
 		document.getElementById("year").addEventListener("change", exactlyDate);//년도 변경시발생
 		document.getElementById("month").addEventListener("change", exactlyDate);//월 변경시발생
 		document.getElementById("mainPosition").addEventListener("change", insertPosition);//메인 포지션 변경시 발생
+		document.getElementById("noteam").addEventListener("click", teamNameDisable);//메인 포지션 변경시 발생
 		
 	};
 	
@@ -203,9 +213,17 @@
 		}
 		
 	}
-	
+	//팀없음을 클릭시
 	function teamNameDisable(){
 		let noTeamChkYN = document.getElementById('noteam');
+		let noTeam = document.getElementById('team_name');
+		
+		if(noTeamChkYN.checked){
+			noTeam.disabled = true;
+			noTeam.innerHTML="";
+		}else{
+			noTeam.disabled = false;
+		}
 	}
 	
 </script>
@@ -236,7 +254,7 @@
 			    </div>
    			    <div class="input-container">
 			        <label>생년월일(Date of Birth)</label>
-			        <select class="w50" id="year" name="year"></select>
+			        <select class="w100" id="year" name="year"></select>
 			        <span>년</span>
 			        <select class="w50" id="month" name="month"></select>
 			        <span>월</span>
@@ -245,7 +263,7 @@
 			    </div>
     			<div class="input-container" id="positionDiv">
 			        <label>포지션(Position)</label>
-			        <select class="w50" id="mainPosition" name="mainPosition">
+			        <select class="w100" id="mainPosition" name="mainPosition">
 			        	<option value="NO">선택</option>
 			        	<option value="FW">공격수</option>
 			        	<option value="MF">미드필더</option>
@@ -253,14 +271,23 @@
 			        	<option value="GK">골키퍼</option>
 			        </select>
 			    </div>
-       			<div class="input-container" id="positionDiv">
+			    <div class="input-container">
+			        <label>키/몸무게</label>
+					<input type="number" class="w50" name="height"><span>CM</span>
+					<input type="number" class="w50" name="weight"><span>KG</span>
+			    </div>
+       			<div class="input-container">
        				<label>팀이름(TeamName)</label>
-					<input type="text" class="w50" name="team_name">
-					<button class="basicButton success">팀 찾기</button>
+					<input type="text" class="w50" name="team_name" id="team_name">
+					<button class="basicButton success" id="find_team">팀 찾기</button>
 					<br>
 					<span>팀 없음</span><input type="checkbox" id="noteam">
 					<br>
 			    </div>
+		    	<div class="btnDiv mt50">
+					<button type="button" class="basicButton danger">취소</button>		    
+					<button type="button" class="basicButton primary">가입</button>		    
+		    	</div>
 			</div>
 	</div>
 </body>
