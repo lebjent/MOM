@@ -20,19 +20,19 @@
 		}
 		
 		nav ul {
-			display: flex;
 			list-style: none;
+			display: flex;
 		}
 		
 		nav li {
-			margin-left: 20px;
+			margin-left: 10px;
 		}
 		
 		nav a {
 			color: #fff;
 			font-family: 'Jua', sans-serif;
 			text-decoration: none;
-			font-size: 14pt;
+			font-size: 12pt;
 		}
 		
 		nav a:hover{

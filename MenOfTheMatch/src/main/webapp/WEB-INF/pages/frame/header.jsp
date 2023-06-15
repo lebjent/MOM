@@ -5,10 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/css/frame/header.css">
+<link rel="stylesheet" href="/resources/css/common/common.css">
+<link rel="stylesheet" href="/resources/css/common/commonFont.css">
+<script type="text/javascript" src="/resources/js/common.js"></script>
 <title>Men Of The Match - 우리들의 축구플랫폼</title>
 </head>
 	<header>
-		<div class="logo">
+		<div class="logo" onclick="location.href='/main'">
 			<img src="/resources/img/logo/logo.png" alt="Men Of The Match" >
 			<span class="title">Men Of The Match</span>
 		</div>

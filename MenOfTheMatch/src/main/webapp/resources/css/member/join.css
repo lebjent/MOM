@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+
+	  *{
+		background-color: #4c5b6a;
+	  }
+		
+	  .joinMain{
+		margin: 0 auto;
+	  }
+		
+	  .imgDiv{
+		margin:"0 auto";
+	    text-align: center;
+	  }
+		
+	  h2{
+		color: white;
+		text-align: center;
+	  }
+	
+      /* CSS 스타일 적용 */
+      
+      .formDiv{
+      	margin: 0 auto;
+      	margin-top: 90px;
+      	width: 30%;
+      }
+      
+      .input-container {
+          margin-bottom: 10px;
+      }
+      
+      .input-container input {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+          background-color: white;
+      }
+      
+      .input-container input:focus {
+          outline: none;
+          border-color: #2196F3;
+          box-shadow: 0 0 5px #2196F3;
+      }
+      
+       .input-container select {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+          background-color: white;
+      }
+      
+      .input-container select:focus {
+          outline: none;
+          border-color: #2196F3;
+          box-shadow: 0 0 5px #2196F3;
+      }
+      
+      .input-container label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+          color: white;
+      }
+
+      .input-container span {
+          font-weight: bold;
+          color: white;
+      }
+
+	 .btnDiv{
+		text-align: right;
+		margin: 0 auto;
+		margin-bottom: 50px;
+	 }
+	
+	 option{
+		background-color: white;
+	 }
+	 
