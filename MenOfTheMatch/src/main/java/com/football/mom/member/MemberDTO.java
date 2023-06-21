@@ -17,6 +17,6 @@ public class MemberDTO {
 	private String gender;
 	private double height;
 	private double weight;
-	
+	private String role;
 	
 }

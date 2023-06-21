@@ -1,6 +1,5 @@
 package com.football.mom.member;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 public interface MemberService {
 	

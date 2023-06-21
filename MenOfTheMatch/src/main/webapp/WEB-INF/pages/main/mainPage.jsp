@@ -86,8 +86,9 @@
 			      	<a href="" class="link">아이디/비밀번호찾기</a>
 			      </div>
 			    </div>
-		  </div>
+		  	</div>
         </div>
+       </div> 
 	</main>
 	<%@ include file="../frame/footer.jsp" %>
 </body>

@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<link rel="stylesheet" href="/resources/css/frame/footer.css">
 <html>
+<link rel="stylesheet" href="/resources/css/frame/footer.css">
 <footer>
   <div class="container">
     <div class="row">
