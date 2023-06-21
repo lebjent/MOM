@@ -6,7 +6,10 @@
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+		<param-value>
+			/WEB-INF/spring/root-context.xml
+			/WEB-INF/spring/security-context.xml
+		</param-value>
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -46,15 +49,44 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+    <!-- Spring Security Configuration -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+	
 	 <!-- jsp Config 설정 -->
 	 <jsp-config>
-	  			<jsp-property-group>
-	   					<url-pattern>*.jsp</url-pattern>
-	   					<page-encoding>UTF-8</page-encoding>
-	   					<scripting-invalid>false</scripting-invalid>
-	  				    <include-prelude>/WEB-INF/include/jstl.jsp</include-prelude>
-	  			</jsp-property-group>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+			<scripting-invalid>false</scripting-invalid>
+		    <include-prelude>/WEB-INF/include/jstl.jsp</include-prelude>
+		</jsp-property-group>
 	 </jsp-config>
 	
+	<!-- Error처리 -->
+	<error-page>
+  		<error-code>403</error-code>
+  		<location>/error/403</location>
+	</error-page>
+
+	<error-page>
+	  <error-code>404</error-code>
+	  <location>/error/404</location>
+	</error-page>
+
+	<error-page>
+	  <error-code>405</error-code>
+	  <location>/error/405</location>
+	</error-page>
 	
+	<error-page>
+	  <location>/error/general</location>
+	</error-page>
 </web-app>

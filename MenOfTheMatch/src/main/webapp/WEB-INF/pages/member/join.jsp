@@ -5,290 +5,166 @@
 <head>
 <meta charset="UTF-8">
 <title>MenOfTheMatch - 회원가입 페이지</title>
+<%@ include file="../../modal/basicModal.jsp" %>
 <link rel="stylesheet" href="/resources/css/common/common.css">
-<style type="text/css">
-	*{
-		background-color: #4c5b6a;
-	}
-	
-	.joinMain{
-		margin: 0 auto;
-	}
-	
-	.imgDiv{
-		margin:"0 auto";
-		text-align: center;
-	}
-	
-	h2{
-		color: white;
-		text-align: center;
-	}
-	
-        /* CSS 스타일 적용 */
-        
-        .formDiv{
-        	margin: 0 auto;
-        	margin-top: 90px;
-        	width: 30%;
-        }
-        
-        .input-container {
-            margin-bottom: 20px;
-        }
-        
-        .input-container input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-            background-color: white;
-        }
-        
-        .input-container input:focus {
-            outline: none;
-            border-color: #2196F3;
-            box-shadow: 0 0 5px #2196F3;
-        }
-        
-         .input-container select {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-            background-color: white;
-        }
-        
-        .input-container select:focus {
-            outline: none;
-            border-color: #2196F3;
-            box-shadow: 0 0 5px #2196F3;
-        }
-        
-        .input-container label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: white;
-        }
-		
-        .input-container span {
-            font-weight: bold;
-            color: white;
-        }
-		
-		.btnDiv{
-			text-align: right;
-			margin: 0 auto;
-			margin-bottom: 50px;
-		}
-		
-		option{
-			background-color: white;
-		}
-</style>
-
+<link rel="stylesheet" href="/resources/css/member/join.css">
+<script type="text/javascript" src="/resources/js/common.js"></script>
+<script type="text/javascript" src="/resources/js/member/join.js"></script>
 <script type="text/javascript">
-
-	/* 바닐라 JS로 타이틀 클릭시  이동 */
-	window.onload = function() {
-		makeDateOfBirth();
-		
-		document.getElementById("year").addEventListener("change", exactlyDate);//년도 변경시발생
-		document.getElementById("month").addEventListener("change", exactlyDate);//월 변경시발생
-		document.getElementById("mainPosition").addEventListener("change", insertPosition);//메인 포지션 변경시 발생
-		document.getElementById("noteam").addEventListener("click", teamNameDisable);//메인 포지션 변경시 발생
-		
-	};
 	
-	/*
-		역할: 년/월/일을 날짜에 맞게 넣어주는 함수
-	*/
-	function makeDateOfBirth(){
 		
-			let year = document.getElementById("year");
-			let month = document.getElementById("month");
-			let day = document.getElementById("day");
-			
-			let currentYear = new Date().getFullYear();
-			
-			//년도 생성
-		    for (let i = currentYear; i >= currentYear - 80; i--) {
-		        let option = document.createElement("option");
-		        option.value = i;
-		        option.text = i;
-		        year.add(option);
-		    }
-			//년도 생성
-		    for (let i = 1; i <= 12; i++) {
-		        let option = document.createElement("option");
-		        option.value = i;
-		        option.text = i;
-		        month.add(option);
-		    }
-			
-			//일 생성
-		    for (let i = 1; i <= 31; i++) {
-		        let option = document.createElement("option");
-		        option.value = i;
-		        option.text = i;
-		        day.add(option);
-		    }
-			
-	}
-	
-	
-	/*년도와 월 선택시 해당 년/월에 맞는 일 옵션을 넣어주기*/
-	function exactlyDate(){
-		
+	function joinProcess(){
+		let joinForm = document.getElementById("joinForm");
+		let idChk = document.getElementById("idChk").value;
+		let pwChk = document.getElementById("pwChk").value;
+		let nameChk = document.getElementById("nameChk").value;
+		let phone2 = document.getElementById("phone2").value;
+		let phone3 = document.getElementById("phone3").value;
 		let year = document.getElementById("year").value;
 		let month = document.getElementById("month").value;
+		let day = document.getElementById("day").value;
+		let position = document.getElementById("position").value;
+		let height = document.getElementById("height").value;
+		let weight = document.getElementById("weight").value;
+		let noTeamChk = document.getElementById("noteam").checked;
+		let team_name = document.getElementById("team_name").value;
 		
-		let daysInMonth = new Date(year, month, 0).getDate();
-		
-		let day = document.getElementById("day");
-		
-		day.innerHTML = "";
-		
-		for(let i=1; i<=daysInMonth; i++){
-	        let option = document.createElement("option");
-	        option.value = i;
-	        option.text = i;
-	        day.add(option);
-		}
-		
-	}
-	
-	/*포지션에 맞는 세부 포지션 넣어주기*/	
-	function insertPosition(){
-		
-		let positionDiv = document.getElementById("positionDiv");
-		
-		let mainPositionValue = document.getElementById("mainPosition").value;
-		
-		let detailPositionElement = document.getElementById("detailPosition");
-		
-		if(detailPositionElement) detailPositionElement.remove();
-		
-		
-		let detailPosition = document.createElement("select");
-		
-		detailPosition.name = "detailPosition";
-		detailPosition.id = "detailPosition";
-		detailPosition.classList.add("w50");
-		
-		if(mainPositionValue =="NO"){
-			alert("포지션을 선택해주세요.");
+		if(nameChk != "Y"){
+			modalAlert('',"이름을 확인해주세요.");	
 			return false;
-		}else if(mainPositionValue == "FW"){
-			positionDiv.appendChild(detailPosition);
-			let html = "<option  value='ST'>ST</option>";
-			html += "<option  value='CF'>CF</option>";
-			html += "<option  value='LF'>LF</option>";
-			html += "<option  value='RF'>RF</option>";
-			html += "<option  value='SS'>SS</option>";
-			html += "<option  value='LW'>LW</option>";
-			html += "<option  value='RW'>RW</option>";
-			detailPosition.innerHTML=html;
-		}else if(mainPositionValue == "MF"){
-			positionDiv.appendChild(detailPosition);
-			let html = "<option  value='CM'>CM</option>";
-			html += "<option  value='LM'>LM</option>";
-			html += "<option  value='RM'>RM</option>";
-			html += "<option  value='CAM'>CAM</option>";
-			html += "<option  value='CDM'>CDM</option>";
-			detailPosition.innerHTML=html;
-		}else if(mainPositionValue == "DF"){
-			positionDiv.appendChild(detailPosition);
-			let html = "<option  value='CB'>CB</option>";
-			html += "<option  value='LB'>LB</option>";
-			html += "<option  value='RB'>RB</option>";
-			html += "<option  value='LWB'>LWB</option>";
-			html += "<option  value='RWB'>RWB</option>";
-			detailPosition.innerHTML=html;
-		}else if(mainPositionValue == "GK"){
-			positionDiv.appendChild(detailPosition);
-			let html = "<option  value='GK'>GK</option>";
-			detailPosition.innerHTML=html;
 		}
-		
-	}
-	//팀없음을 클릭시
-	function teamNameDisable(){
-		let noTeamChkYN = document.getElementById('noteam');
-		let noTeam = document.getElementById('team_name');
-		
-		if(noTeamChkYN.checked){
-			noTeam.disabled = true;
-			noTeam.innerHTML="";
+		if(idChk != "Y"){
+			modalAlert('','아이디를 확인해주세요.');
+			return false;
+		}
+		if(pwChk != "Y"){
+			modalAlert('','비밀번호를 확인해주세요.');
+			return false;
+		}
+		if(phone2 == '' || phone3 == ''){
+			modalAlert('','휴대폰 번호를 확인해주세요.');
+			return false;
 		}else{
-			noTeam.disabled = false;
+			document.getElementById("phone").value = "010-" + phone2 + "-" + phone3;
 		}
-	}
+		
+		document.getElementById("birthday").value = year + "-" + month + "-" + day;
+		
+		if(position == "NO"){
+			modalAlert('','포지션을 선택해주세요.');
+			return false;
+		}
+		
+		if(height == ''){
+			modalAlert('','키를 입력해주세요.');
+			return false;	
+		}
+		
+		if(weight == ''){
+			modalAlert('','몸무게를 입력해주세요.');
+			return false;
+		}
+		
+		if(!noTeamChk){
+			if(team_name == ''){
+				modalAlert('','팀이름을 입력해주세요.');
+				return false;
+			}
+		}
+		
+		joinForm.submit();
+		
+	}	
+	
+  	function submitForm(event) {
+    	event.preventDefault(); // 폼 제출의 기본 동작을 막습니다.
+  	}
 	
 </script>
 
 </head>
 <body>
 	<div class="joinMain">
-			<div class="imgDiv">
-				<img src="/resources/img/join/pitch.png" width="150" height="150">
-			</div>
-			<h2>Men Of The Match 회원가입</h2>
-			<div class="formDiv">
-			    <div class="input-container">
-			        <label for="username">이름(Name)</label>
-			        <input type="text"  class="w100p" name="name" placeholder="이름을 입력하세요.">
-			    </div>
-			    <div class="input-container">
-			        <label for="username">아이디(ID)</label>
-			        <input type="text"  class="w100p" name="name" placeholder="아이디를 입력하세요.">
-			    </div>
-			     <div class="input-container">
-			        <label for="password">비밀번호(Password)</label>
-			        <input type="password"  class="w100p" name="password" >
-			    </div>
-			   <div class="input-container">
-			        <label for="passworChk">비밀번호 확인(PasswordCheck)</label>
-			        <input type="password" class="w100p" name="passworChk" >
-			    </div>
-   			    <div class="input-container">
-			        <label>생년월일(Date of Birth)</label>
-			        <select class="w100" id="year" name="year"></select>
-			        <span>년</span>
-			        <select class="w50" id="month" name="month"></select>
-			        <span>월</span>
-     			    <select class="w50" id="day" name="day"></select>
-			        <span>일</span>
-			    </div>
-    			<div class="input-container" id="positionDiv">
-			        <label>포지션(Position)</label>
-			        <select class="w100" id="mainPosition" name="mainPosition">
-			        	<option value="NO">선택</option>
-			        	<option value="FW">공격수</option>
-			        	<option value="MF">미드필더</option>
-			        	<option value="DF">수비수</option>
-			        	<option value="GK">골키퍼</option>
-			        </select>
-			    </div>
-			    <div class="input-container">
-			        <label>키/몸무게</label>
-					<input type="number" class="w50" name="height"><span>CM</span>
-					<input type="number" class="w50" name="weight"><span>KG</span>
-			    </div>
-       			<div class="input-container">
-       				<label>팀이름(TeamName)</label>
-					<input type="text" class="w50" name="team_name" id="team_name">
-					<button class="basicButton success" id="find_team">팀 찾기</button>
-					<br>
-					<span>팀 없음</span><input type="checkbox" id="noteam">
-					<br>
-			    </div>
-		    	<div class="btnDiv mt50">
-					<button type="button" class="basicButton danger">취소</button>		    
-					<button type="button" class="basicButton primary">가입</button>		    
-		    	</div>
-			</div>
+		<div class="imgDiv">
+			<img src="/resources/img/logo/pitch.png" width="150" height="150">
+		</div>
+		<h2>Men Of The Match 회원가입</h2>
+		<form id="joinForm" method="post" onsubmit="submitForm(event)" action="/member/memberJoin">
+		<div class="formDiv">
+		    <div class="input-container" id="nameDiv">
+		        <label for="username">이름(Name)</label>
+		        <input type="text"  class="w100p" onkeyup="nameCheck(event)" onkeydown="allowOnlyKorean(event)" id="name" name="name" placeholder="이름을 입력하세요.">
+		    	<input type="hidden" id="nameChk" value="N">
+		    </div>
+		    <div class="input-container" id="idDiv">
+		        <label for="id">아이디(ID)</label>
+		        <input type="text"  class="w100p" name="id" id="id" onkeyup="restrictId(event)" placeholder="아이디를 입력하세요.">
+		    	<input type="hidden" id="idChk" value="N">
+		    </div>
+	     	<div class="input-container" id="pwDiv">
+		        <label for="password">비밀번호(Password)</label>
+		        <input type="password"  class="w100p" onkeyup="pwChk1(event)" name="password" id="password" placeholder="비밀번호를 입력하세요.">
+		    </div>
+		    <div class="input-container" id="pwChkDiv">
+		        <label for="passworChk">비밀번호 확인(PasswordCheck)</label>
+		        <input type="password" class="w100p" onkeyup="pwChk2(event)" id="passwordChk" name="passworChk" placeholder="비밀번호를 확인해주세요." >
+		    	<input type="hidden" id="pwChk" value="N">
+		    </div>
+     		<div class="input-container">
+		        <label>성별(Gender)</label>
+		        <select class="w100" name="gender">
+		        	<option value="M">남성</option>
+		        	<option value="F">여성</option>
+		        </select>
+		    </div>
+		    <div class="input-container">
+		        <label for="passworChk">전화번호(Phone)</label>
+		        <input type="text" class="w80 tac" id="phone1" value="010" readonly>
+		        <span>-</span>
+		        <input type="text" class="w80 tac" onkeydown="limitToFourDigits(event)" id="phone2">
+		        <span>-</span>
+		        <input type="text" class="w80 tac" onkeydown="limitToFourDigits(event)" id="phone3">
+		        <input type="hidden" id="phone" name="phone">
+		    </div>
+  			    <div class="input-container">
+		        <label>생년월일(Date of Birth)</label>
+		        <select class="w100" id="year" name="year"></select>
+		        <span>년</span>
+		        <select class="w80" id="month" name="month"></select>
+		        <span>월</span>
+    			<select class="w80" id="day" name="day"></select>
+		        <span>일</span>
+		        <input type="hidden" id="birthday" name="birthday" >
+		    </div>
+   			<div class="input-container" id="positionDiv">
+		        <label>포지션(Position)</label>
+		        <select class="w100" id="position" name="position">
+		        	<option value="NO">선택</option>
+		        	<option value="FW">공격수</option>
+		        	<option value="MF">미드필더</option>
+		        	<option value="DF">수비수</option>
+		        	<option value="GK">골키퍼</option>
+		        </select>
+		    </div>
+		    <div class="input-container">
+		        <label>키/몸무게</label>
+				<input type="number" class="w80" name="height" id="height"><span>CM</span>
+				<input type="number" class="w80" name="weight" id="weight"><span>KG</span>
+		    </div>
+  			<div class="input-container">
+    			<label>팀이름(TeamName)</label>
+				<input type="text" class="w130" name="team_name" id="team_name">
+				<button class="basicButton success" id="find_team">팀 찾기</button>
+				<br>
+				<span>팀 없음</span><input type="checkbox" id="noteam">
+				<br>
+		    </div>
+	    	<div class="btnDiv mt50">
+				<button type="button" class="basicButton danger" onclick="location.href='/main'">취소</button>		    
+				<button type="button" class="basicButton primary" id="join" onclick="joinProcess()">가입</button>		    
+	    	</div>
+		</div>
+		</form>
 	</div>
 </body>
 </html>

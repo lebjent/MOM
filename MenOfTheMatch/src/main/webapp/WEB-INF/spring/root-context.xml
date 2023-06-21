@@ -8,7 +8,7 @@
 
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
-		    <property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/mom?useUnicode=true&amp;characterEncoding=utf-8;&amp;serverTimezone=Asia/Seoul&amp;"/>
+	    <property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/mom?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Seoul&amp;useLegacyDatetimeCode=false&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;allowMultiQueries=true"/>
 		<property name="username" value="mom"/>
 		<property name="password" value="1234"/>
 	</bean>
@@ -25,5 +25,9 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
-		
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.football.mom" />
+	</bean>
+
 </beans>

@@ -3,12 +3,28 @@
 	margin: auto 0;	
 }
 
+.cursor-p{
+	cursor: pointer;
+}
+
+.mt50{
+	margin-top: 50px;
+}
+
+.mt100{
+	margin-top: 100px;
+}
+
 .mt200{
 	margin-top: 200px;
 }
 
 .mt500{
 	margin-top: 500px;
+}
+
+.mb100{
+	margin-bottom: 100px;
 }
 
 .mr30{
@@ -24,6 +40,14 @@
 	  display: flex;
 }
 
+.fd-col{
+	flex-direction: column;
+}
+
+.fd-row{
+	flex-direction: row;
+}
+
 .jc-c{
 	justify-content: center;
 }
@@ -32,6 +56,14 @@
 
 .tac{
 	text-align: center;
+}
+
+.tal{
+	text-align: left;
+}
+
+.tar{
+	text-align: right;
 }
 
 /* 너비 설정 */
@@ -60,8 +92,12 @@
 	width: 75%;
 }
 
-.w70P{
+.w70p{
 	width: 70%;
+}
+
+.w50p{
+	width: 50%;
 }
 
 .w30{
@@ -78,6 +114,29 @@
 
 .w100{
 	width: 100px;
+}
+
+.w130{
+	width: 130px;
+}
+
+.w130{
+	width: 130px;
+}
+
+.w150{
+	width: 150px;
+}
+
+.w200{
+	width: 200px;
+}
+.w300{
+	width: 300px;
+}
+
+.w350{
+	width: 350px;
 }
 
 .h100p{
@@ -121,4 +180,8 @@
 .primary:hover{
 	border: #127f2e solid 1px;
 	background-color: #7ce895;
+}
+
+.va-m{
+	vertical-align: middle;
 }

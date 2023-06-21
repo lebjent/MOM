@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+
+.basicFont{
+	font-family: 'Dongle', sans-serif;
+}
+
+.fw-b{
+	font-weight: bold;
+}
+
+/* 폰트 사이즈 */
+
+.fs-8pt{
+	font-size: 8pt;
+}
+
+.fs-9pt{
+	font-size: 9pt;
+}
+
+.fs-10pt{
+	font-size: 10pt;
+}
+
+.fs-11pt{
+	font-size: 11pt;
+}
+
+.fs-12pt{
+	font-size: 12pt;
+}
+
+.fs-13pt{
+	font-size: 13pt;
+}
+
+.fs-14pt{
+	font-size: 14pt;
+}
+
+.fs-15pt{
+	font-size: 15pt;
+}
+
+.fs-16pt{
+	font-size: 16pt;
+}
+
+.fs-17pt{
+	font-size: 17pt;
+}
+
+.fs-18pt{
+	font-size: 18pt;
+}
+
+.fs-19pt{
+	font-size: 19pt;
+}
+.fs-20pt{
+	font-size: 20pt;
+}
+
+.fs-25pt{
+	font-size: 25pt;
+}
+
+
+/* 폰트 컬러 */
+.color-gray{
+	color: #32362a;
+}
+
+.color-darkblue{
+	color: #0e4b5b;
+}
+
+.color-red{
+	color: #8a0800;
+}
+
+.color-white{
+	color: #fffbea;
+}
+
+.color-yellow{
+	color:#ffd127;
+}
+
+.color-fire{
+	color:red;
+}
+
+.color-orange{
+	color:#f16700;
+}
+
+.color-skyblue{
+	color:#93d4ff;
+}
+
+.text-d-ul{
+	text-decoration: underline;
+}

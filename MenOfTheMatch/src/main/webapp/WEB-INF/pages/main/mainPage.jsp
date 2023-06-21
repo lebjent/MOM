@@ -50,7 +50,7 @@
 	    	background-color: #7b7672;
 	    }
         	
-          .login-box .logout-btn {
+        .login-box .logout-btn {
             background-color: #ff5555;
             color: #fff;
             border: none;
@@ -76,18 +76,19 @@
 		
 		</div>
         <div class="login-container">
-			  <div class="login-box">
-			    <div class="form-group">
-				    <div class="login-btn-box">
-				      <button type="submit" class="login-btn">로그인</button>
-				      <div class="user-service">
-				      	<a href="/member/join" class="link">회원가입</a>
-				      	<span>/</span>
-				      	<a href="" class="link">아이디/비밀번호찾기</a>
-				      </div>
-				    </div>
-			  </div>
+		  <div class="login-box">
+		    <div class="form-group">
+			    <div class="login-btn-box">
+			      <button type="button" onclick="location.href='/loginPage'" class="login-btn">로그인</button>
+			      <div class="user-service">
+			      	<a href="/member/join" class="link">회원가입</a>
+			      	<span>/</span>
+			      	<a href="" class="link">아이디/비밀번호찾기</a>
+			      </div>
+			    </div>
+		  	</div>
         </div>
+       </div> 
 	</main>
 	<%@ include file="../frame/footer.jsp" %>
 </body>
