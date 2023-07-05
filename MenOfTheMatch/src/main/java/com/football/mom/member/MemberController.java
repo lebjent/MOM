@@ -61,12 +61,12 @@ public class MemberController {
 		}
 	}
 	
-	@PostMapping(value="/memberJoinSuccess")
+	@GetMapping(value="/memberJoinSuccess")
 	public String memberJoinSuccess()throws Exception{
 		return "/member/memberJoinSuccess";
 	}
 	
-	@PostMapping(value="/memberJoinFail")
+	@GetMapping(value="/memberJoinFail")
 	public String memberJoinFail()throws Exception{
 		return "/member/memberJoinFail";
 	}

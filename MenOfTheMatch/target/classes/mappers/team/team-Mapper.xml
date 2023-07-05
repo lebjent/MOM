@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.football.mom.team.TeamMapper">
+	
+	<!-- 최근에 등록된 팀번호 가져오기 -->
+	<select id="getRecentTno" resultType="String">
+		SELECT MAX(TNO) AS TNO 
+		FROM TEAM_TBL
+	</select>
+	
+	<!-- 팀 생성자 팀 등록하기 -->
+	<update id="updateTno" parameterType="TeamDTO">
+		UPDATE MEMBER_TBL
+		SET  TNO = #{tno}
+		WHERE mno = #{treaderNo}
+	</update>
+	
+	<!-- 팀 정보 생성하기 -->
+	<insert id="teamCreate" parameterType="TeamDTO">
+		INSERT INTO TEAM_TBL
+		(
+		  tno, 
+		  tname, 
+		  taverage_age, 
+		  tsince, 
+		  tregion, 
+		  tfile_path, 
+		  tfile_save_name, 
+		  tfile_original_name, 
+		  tintroduce, 
+		  treader_no, 
+		  treg_date
+		)
+		VALUES(
+			#{tno},
+			#{tname},
+			#{taverageAge},
+			#{tsince},
+			#{tregion},
+			#{tfilePath},
+			#{tfileSaveName},
+			#{tfileOriginalName},
+			#{tintroduce},
+			#{treaderNo},
+			NOW()
+		)
+	</insert>
+</mapper>

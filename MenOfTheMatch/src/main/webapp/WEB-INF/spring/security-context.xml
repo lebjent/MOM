@@ -14,7 +14,9 @@
                              password-parameter="password"
                              authentication-failure-url="/loginPage?error=true" />
         <security:logout logout-url="/logout"
-                         logout-success-url="/loginPage?logout=true" />
+                         logout-success-url="/main"
+				         invalidate-session="true"
+				         delete-cookies="JSESSIONID" />
                          
     	<security:intercept-url pattern="/**" access="permitAll" />
     </security:http>

@@ -1,0 +1,168 @@
+	/*팀 생성 모달 창*/
+	
+	@charset "UTF-8";
+	
+	*{
+	 overflow: hidden;
+	}
+	.modal {
+	  display: none;
+	  position: fixed;
+	  z-index: 1;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	  overflow: auto;
+	  background-color: rgba(0,0,0,0.4);
+	}
+	
+	.teamReg-content {
+	  background-color: #fefefe;
+	  margin: 10% auto;
+	  border: 1px solid #888;
+	  width: 600px;
+	}
+	
+	.modal-header {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  margin-bottom: 10px;
+	  background-color: #333;
+	  color: #fff;
+	  padding: 10px;
+	  width: 100%;
+	  box-sizing: border-box;
+	  height: 50px;
+	}
+	.modal-header h4{
+		background-color: #333;
+	}
+	.modal-body {
+	  margin-top:40px;
+	  margin-bottom: 40px;
+	  margin-left:8px;
+	  background-color: #fefefe;
+	}
+	.modal-body p{
+	  background-color: #fefefe;
+	  font-weight: bold;
+	  font-size: 11pt;
+	}
+	
+	.modal-footer {
+	  display: flex;
+	  justify-content: flex-end;
+	  background-color: #fefefe;
+	  margin-bottom: 20px;
+	}
+	
+	.close {
+	  color: #aaa;
+	  font-size: 28px;
+	  font-weight: bold;
+	  cursor: pointer;
+	  background-color: #333;
+	}
+	
+	.close:hover,
+	.close:focus {
+	  color: #fff;
+	  text-decoration: none;
+	}
+	
+    .close_btn {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #808080;
+      border: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      margin-right: 5px;
+      margin-top: 5px;
+    }
+    
+    .close_btn:hover {
+      background-color: #555555;
+    }
+    
+    	
+    .reg_btn {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #ff2d08;
+      border: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      margin-right: 5px;
+      margin-top: 5px;
+    }
+    
+    .reg_btn:hover {
+      background-color: #d45213;
+    }
+    
+    .teamForm{
+    	margin: 0 auto;
+    }
+    
+    .teamForm label{
+   	  display: block;
+	  margin-top: 5px;
+	  margin-bottom: 5px;
+	  font-weight: bold;
+	  color: #333;
+    }
+    
+    .teamForm input,select,textarea {
+	  padding: 10px;
+	  font-size: 16px;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	}
+    
+    .teamForm input:focus,select:focus,textarea:focus {
+	  outline: none;
+	  border-color: #6c63ff;
+	  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+	}
+    
+	.teamLogoReg {
+	  margin: 0 auto;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  width: 200px;
+	  height: 200px;
+	  padding: 10px;
+	  border-radius: 50%;
+	  background-color: #333331;
+	  overflow: hidden;
+	}
+	
+	.teamLogoReg img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	  object-position: center;
+	  border-radius: 50%;
+	}
+    
+    textarea {
+		resize: none;
+	}
