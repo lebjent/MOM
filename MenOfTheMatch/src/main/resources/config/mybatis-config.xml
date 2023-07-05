@@ -11,5 +11,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   		 </settings>
 		<typeAliases>
     		<typeAlias type="com.football.mom.member.MemberDTO" alias="MemberDTO" />
+    		<typeAlias type="com.football.mom.team.TeamDTO" alias="TeamDTO" />
 		</typeAliases>
 </configuration>

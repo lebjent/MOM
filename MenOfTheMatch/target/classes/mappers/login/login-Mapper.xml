@@ -4,10 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.football.mom.login.LoginMapper">
 	
+	<!-- 로그인한 회원의 정보 가져오기 -->
 	<select id="getLoginMemberInfo" parameterType="String" resultType="MemberDTO">
 		SELECT * 
 		FROM MEMBER_TBL
 		WHERE ID = #{id}
+	</select>
+	
+	<!-- 로그인한 회원읜 팀 번호가져오기 -->
+	<select id="getTno" parameterType="String" resultType="String">
+		SELECT TNO
+		FROM MEMBER_TBL
+		WHERE MNO = #{mno}
+	</select>
+	
+	<!-- 로그인한 회원의 팀정보 가져오기 -->
+	<select id="getLoginTeamInfo" parameterType="String" resultType="TeamDTO">
+		SELECT TNAME,TFILE_PATH 
+		FROM MEMBER_TBL A JOIN TEAM_TBL B
+		WHERE A.TNO = B.TNO
+		AND A.MNO = #{mno}
 	</select>
 	
 </mapper>

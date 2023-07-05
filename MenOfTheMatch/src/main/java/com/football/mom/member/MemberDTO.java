@@ -18,5 +18,6 @@ public class MemberDTO {
 	private double height;
 	private double weight;
 	private String role;
+	private String join_date;
 	
 }

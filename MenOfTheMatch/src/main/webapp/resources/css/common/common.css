@@ -31,9 +31,20 @@
 	margin-right: 30px;
 }
 
+/* padding */
+
 .pt300{
 	padding-top: 300px;
 }
+
+.p20p{
+	padding: 20px;
+}
+
+.p30p{
+	padding: 30px;
+}
+
 
 /* display */
 .df{
@@ -50,6 +61,10 @@
 
 .jc-c{
 	justify-content: center;
+}
+
+.ai-c{
+	align-items: center
 }
 
 /* 텍스트 정렬 */

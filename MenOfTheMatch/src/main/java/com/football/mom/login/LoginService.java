@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.football.mom.member.MemberDTO;
+import com.football.mom.team.TeamDTO;
 
 
 @Service
@@ -38,13 +39,10 @@ public class LoginService implements UserDetailsService{
 			throw new UsernameNotFoundException(id);
 		}
 		
-		UserDetails user = User.builder()
-							.username(memberInfo.getId())
-							.password(memberInfo.getPassword())
-							.roles(memberInfo.getRole())
-							.build();
+		LoginInfo loginInfo = new LoginInfo(memberInfo);
 		
-		return user;
+		
+		return loginInfo;
 	}
 	
     public boolean authenticate(String id, String password) {
@@ -66,4 +64,14 @@ public class LoginService implements UserDetailsService{
         return passwordEncoder.matches(password, memberInfo.getPassword());
     }
 	
+    //로그인한 회원의 팀정보가져오기
+    public TeamDTO getLoginTeamInfo(String mno)throws Exception{
+    	return mapper.getLoginTeamInfo(mno);
+    }
+    
+    //로그인한 회원의 팀번호 가져오기
+    public String getTno(String mno) throws Exception{
+    	return mapper.getTno(mno);
+    }
+    
 }

@@ -29,7 +29,8 @@
 			HEIGHT,
 			WEIGHT,
 			ROLE,
-			PHONE
+			PHONE,
+			JOIN_DATE
 		)
 		VALUES(
 			0,
@@ -46,7 +47,8 @@
 			#{height},
 			#{weight},
 			'USER',
-			#{phone}
+			#{phone},
+			NOW()
 		)
 	</insert>
 	

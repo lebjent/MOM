@@ -28,21 +28,5 @@ public class LoginController {
 	    return "login/loginPage";
 	}
 	
-	@PostMapping(value = "/login")
-	public String login(@RequestParam("id")String id,@RequestParam("password")String password,RedirectAttributes redirectAttributes)throws Exception{
-			
-		Boolean auth = service.authenticate(id, password);
-		if(auth) {
-			log.info("*******로그인 성공*******");
-	        Authentication loggedInUser = new UsernamePasswordAuthenticationToken(id, password);
-	        SecurityContextHolder.getContext().setAuthentication(loggedInUser); // 인증 객체 설정
-			return "redirect:/main";
-		}else {
-			log.info("*******로그인 실패*******");
-			redirectAttributes.addAttribute("error", "true");
-			return "redirect:/loginPage";
-		}
-	}
-	
 	
 }

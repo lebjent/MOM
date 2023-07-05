@@ -5,83 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>MenOfTheMatch - 회원가입 페이지</title>
-<%@ include file="../../modal/basicModal.jsp" %>
+<link rel="icon" href="/resources/img/favicon/mom-16x16.png">
 <link rel="stylesheet" href="/resources/css/common/common.css">
 <link rel="stylesheet" href="/resources/css/member/join.css">
 <script type="text/javascript" src="/resources/js/common.js"></script>
 <script type="text/javascript" src="/resources/js/member/join.js"></script>
-<script type="text/javascript">
-	
-		
-	function joinProcess(){
-		let joinForm = document.getElementById("joinForm");
-		let idChk = document.getElementById("idChk").value;
-		let pwChk = document.getElementById("pwChk").value;
-		let nameChk = document.getElementById("nameChk").value;
-		let phone2 = document.getElementById("phone2").value;
-		let phone3 = document.getElementById("phone3").value;
-		let year = document.getElementById("year").value;
-		let month = document.getElementById("month").value;
-		let day = document.getElementById("day").value;
-		let position = document.getElementById("position").value;
-		let height = document.getElementById("height").value;
-		let weight = document.getElementById("weight").value;
-		let noTeamChk = document.getElementById("noteam").checked;
-		let team_name = document.getElementById("team_name").value;
-		
-		if(nameChk != "Y"){
-			modalAlert('',"이름을 확인해주세요.");	
-			return false;
-		}
-		if(idChk != "Y"){
-			modalAlert('','아이디를 확인해주세요.');
-			return false;
-		}
-		if(pwChk != "Y"){
-			modalAlert('','비밀번호를 확인해주세요.');
-			return false;
-		}
-		if(phone2 == '' || phone3 == ''){
-			modalAlert('','휴대폰 번호를 확인해주세요.');
-			return false;
-		}else{
-			document.getElementById("phone").value = "010-" + phone2 + "-" + phone3;
-		}
-		
-		document.getElementById("birthday").value = year + "-" + month + "-" + day;
-		
-		if(position == "NO"){
-			modalAlert('','포지션을 선택해주세요.');
-			return false;
-		}
-		
-		if(height == ''){
-			modalAlert('','키를 입력해주세요.');
-			return false;	
-		}
-		
-		if(weight == ''){
-			modalAlert('','몸무게를 입력해주세요.');
-			return false;
-		}
-		
-		if(!noTeamChk){
-			if(team_name == ''){
-				modalAlert('','팀이름을 입력해주세요.');
-				return false;
-			}
-		}
-		
-		joinForm.submit();
-		
-	}	
-	
-  	function submitForm(event) {
-    	event.preventDefault(); // 폼 제출의 기본 동작을 막습니다.
-  	}
-	
-</script>
-
 </head>
 <body>
 	<div class="joinMain">
@@ -164,7 +92,9 @@
 				<button type="button" class="basicButton primary" id="join" onclick="joinProcess()">가입</button>		    
 	    	</div>
 		</div>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		</form>
 	</div>
+	<%@ include file="../../modal/basicModal.jsp" %>
 </body>
 </html>

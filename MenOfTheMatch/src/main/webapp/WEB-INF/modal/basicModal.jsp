@@ -26,17 +26,25 @@
 		});
 	});
 	
-	function modalAlert(title,msg){
+	function modalAlert(title, msg, callback) {
 		let modal = document.getElementById("myModal");
 		let titleBox = document.getElementById("title");
 		let msgBox = document.getElementById("msg");
 		modal.style.display = "block";
-		if(title == ""){
+		if (title == "") {
 			titleBox.innerHTML = "알림";
-		}else{
+		} else {
 			titleBox.innerHTML = title;
 		}
 		msgBox.innerHTML = msg;
+
+		let closeButton = document.getElementsByClassName("button")[0];
+		closeButton.addEventListener("click", function() {
+			modal.style.display = "none";
+			if (typeof callback === "function") {
+				callback();
+			}
+		});
 	}
 </script>
 <html>
